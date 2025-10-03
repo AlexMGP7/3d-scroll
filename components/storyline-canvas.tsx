@@ -15,8 +15,6 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import type * as THREE from "three"
 
-gsap.registerPlugin(ScrollTrigger)
-
 function Scene() {
   const cubeRef = useRef<THREE.Mesh>(null)
   const sphereRef = useRef<THREE.Mesh>(null)
@@ -47,6 +45,8 @@ function Scene() {
   })
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#storyline-container",
@@ -357,6 +357,8 @@ function StoryOverlay() {
   const circularCardsRef = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
     const chapters = [
       { title: "Introducción", subtitle: "Bienvenido al viaje 3D" },
       { title: "Capítulo 1: El Cubo", subtitle: "Geometría fundamental" },
@@ -541,7 +543,7 @@ function StoryOverlay() {
           <div id="circular-cards-container" className="relative w-[600px] h-[600px] pointer-events-auto">
             {/* Centro decorativo */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 shadow-2xl flex items-center justify-center border-4 border-white/20">
-              <span className="text-5xl">��</span>
+              <span className="text-5xl">🌟</span>
             </div>
 
             {/* Cards en círculo */}
